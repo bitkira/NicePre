@@ -1,3 +1,5 @@
+const ASSET_PATH = "./assets/moe-routing-concept.png";
+
 const needsDisplayStyle = (source) =>
   /\\(sum|prod|int|frac|lim|sup|inf|argmax|argmin)\b/.test(source);
 
@@ -5,9 +7,6 @@ const withDisplayLimits = (source) =>
   source
     .replace(/\\sum(?!\\limits|\\nolimits)/g, "\\sum\\limits")
     .replace(/\\prod(?!\\limits|\\nolimits)/g, "\\prod\\limits")
-    .replace(/\\coprod(?!\\limits|\\nolimits)/g, "\\coprod\\limits")
-    .replace(/\\bigcup(?!\\limits|\\nolimits)/g, "\\bigcup\\limits")
-    .replace(/\\bigcap(?!\\limits|\\nolimits)/g, "\\bigcap\\limits")
     .replace(/\\argmax(?!\\limits|\\nolimits)/g, "\\argmax\\limits")
     .replace(/\\argmin(?!\\limits|\\nolimits)/g, "\\argmin\\limits");
 
@@ -22,59 +21,14 @@ const tex = (source) => {
   });
 };
 
-const slides = [
-  {
-    eyebrow: "Mixture of Experts",
-    title: "Router turns tokens into expert scores",
-    page: "01",
-    image: "./assets/moe-stage-01-router.png",
-    formulas: [
-      {
-        title: "gate",
-        math: "p(e_i\\mid x)=\\operatorname{softmax}(W_g x)_i",
-      },
-      {
-        title: "sparse choice",
-        math: "S(x)=\\operatorname{TopK}(p(e_i\\mid x))",
-        tone: "green",
-      },
-    ],
-  },
-  {
-    eyebrow: "Sparse Dispatch",
-    title: "Only a few experts receive each token",
-    page: "02",
-    image: "./assets/moe-stage-02-topk-ref.png",
-    formulas: [
-      {
-        title: "dispatch mask",
-        math: "m_i(x)=\\mathbf{1}\\{e_i\\in S(x)\\}",
-      },
-      {
-        title: "expert call",
-        math: "\\tilde{y}_i=m_i(x)\\,E_i(x)",
-        tone: "green",
-      },
-    ],
-  },
-  {
-    eyebrow: "Weighted Combine",
-    title: "Selected experts mix back into one state",
-    page: "03",
-    image: "./assets/moe-stage-03-combine-ref.png",
-    formulas: [
-      {
-        title: "mixture output",
-        math: "y(x)=\\sum\\limits_{i\\in S(x)}p(e_i\\mid x)\\,E_i(x)",
-      },
-      {
-        title: "load balance",
-        math: "\\mathcal{L}_{aux}=\\alpha N\\sum\\limits_i f_i P_i",
-        tone: "purple",
-      },
-    ],
-  },
-];
+const slideShell = ({ eyebrow, title, page, body }) => `
+  <section class="slide">
+    <p class="eyebrow">${eyebrow}</p>
+    <h1 class="title">${title}</h1>
+    <div class="page">${page}</div>
+    ${body}
+  </section>
+`;
 
 const formulaHtml = ({ title, math, tone = "" }) => `
   <div class="formula ${tone}" data-formula-panel>
@@ -83,21 +37,60 @@ const formulaHtml = ({ title, math, tone = "" }) => `
   </div>
 `;
 
-document.body.innerHTML = slides
-  .map(
-    (slide) => `
-      <section class="slide">
-        <p class="eyebrow">${slide.eyebrow}</p>
-        <h1 class="title">${slide.title}</h1>
-        <div class="page">${slide.page}</div>
-        <img class="stage-image" src="${slide.image}" alt="${slide.title}" />
-        <div class="formula-row">
-          ${slide.formulas.map(formulaHtml).join("")}
+const slideOne = slideShell({
+  eyebrow: "Mixture of Experts",
+  title: "Generated routing concept, formula-first",
+  page: "01",
+  body: `
+    <div class="raster-stage">
+      <img class="asset" src="${ASSET_PATH}" alt="Text-free generated MoE routing concept illustration" />
+    </div>
+
+    <div class="formula-row">
+      ${[
+        {
+          title: "router gate",
+          math: "p(e_i\\mid x)=\\operatorname{softmax}(W_g x)_i",
+        },
+        {
+          title: "sparse mixture",
+          math: "y(x)=\\sum\\limits_{i\\in S(x)}p(e_i\\mid x)\\,E_i(x)",
+          tone: "green",
+        },
+      ]
+        .map(formulaHtml)
+        .join("")}
+    </div>
+  `,
+});
+
+const slideTwo = slideShell({
+  eyebrow: "Raster Asset Rule",
+  title: "Imagegen suggests the system, KaTeX states the math",
+  page: "02",
+  body: `
+    <div class="audit-grid">
+      <img class="audit-image" src="${ASSET_PATH}" alt="Generated MoE raster asset audit preview" />
+      <div class="audit-list">
+        <div class="audit-item">
+          <div class="audit-term">bitmap object</div>
+          <div class="audit-note">soft routing metaphor, not a hand-built flowchart</div>
         </div>
-      </section>
-    `,
-  )
-  .join("");
+        <div class="audit-item">
+          <div class="audit-term">text-free</div>
+          <div class="audit-note">no baked-in labels, variables, legends, or pseudo-glyphs</div>
+        </div>
+        <div class="audit-item">
+          <div class="audit-term">formula-first</div>
+          <div class="audit-note">exact definitions stay in adjacent KaTeX groups</div>
+        </div>
+      </div>
+    </div>
+    <div class="asset-rule"><strong>Generated image for intuition.</strong>&nbsp; Code-native math for truth.</div>
+  `,
+});
+
+document.body.innerHTML = `${slideOne}${slideTwo}`;
 
 if (document.fonts?.ready) {
   document.fonts.ready.then(() => document.body.classList.add("math-ready"));

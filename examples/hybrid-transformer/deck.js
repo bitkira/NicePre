@@ -1,4 +1,4 @@
-const ASSET_PATH = "./assets/transformer-interior.png";
+const ASSET_PATH = "./assets/transformer-interior-v2.png";
 
 const tex = (source, displayMode = false) =>
   katex.renderToString(source, { displayMode, throwOnError: false, strict: "ignore" });

@@ -15,6 +15,8 @@ simple block names so the picture remains stylistically unified.
 Use imagegen when:
 
 - the slide needs a rich visual object, not an exact diagram
+- the result should visibly be a generated bitmap illustration layer, not a
+  code-native flowchart rendered as pixels
 - the object can be text-free, or uses only large simple labels that can be
   visually checked
 - the reader can still understand exact meaning from adjacent formulas or
@@ -26,6 +28,8 @@ Do not use imagegen when:
 
 - the visual is mostly an equation, graph, matrix, table, exact architecture, or
   token sequence
+- the desired output is rigid boxes, sharp arrows, UI-like cards, or a precise
+  flowchart that would be cleaner as HTML/SVG
 - exact text accuracy matters inside the bitmap
 - the asset must remain fully editable as vector source
 
@@ -112,6 +116,9 @@ decorative blobs, heavy shadows, clutter.
 6. After generation, inspect the image before using it. Reject assets with
    hallucinated text, wrong palette, dark backgrounds, clutter, or baked-in
    arrows that conflict with the formula-first composition.
+7. Reject outputs that look like hand-authored SVG, UI mockups, or exact
+   flowcharts. The raster layer should have bitmap illustration qualities:
+   gentle translucency, soft object texture, organic flow, and no pseudo-text.
 
 ## Progressive Sequence Prompt
 

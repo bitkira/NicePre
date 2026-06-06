@@ -41,12 +41,12 @@ Source: [`examples/mdp-reproduction`](examples/mdp-reproduction)
   <img src="examples/mdp-reproduction/export/slide-01.png" alt="MDP polished reproduction" width="100%">
 </a>
 
-### MoE Router Sequence
+### MoE Raster Concept
 
 Source: [`examples/moe-router`](examples/moe-router)
 
 <a href="examples/moe-router/export/contact-sheet.png">
-  <img src="examples/moe-router/export/contact-sheet.png" alt="MoE router sequence contact sheet" width="100%">
+  <img src="examples/moe-router/export/contact-sheet.png" alt="MoE raster concept contact sheet" width="100%">
 </a>
 
 ### Hybrid Raster + KaTeX

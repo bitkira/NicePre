@@ -114,6 +114,10 @@ in an available shared runtime.
   as embeddings, transformer blocks, linear heads, broad arrows, and simple
   module labels share one visual style. Do not hand-overlay these visual
   callouts with HTML/SVG unless the user asks for an exact code-native diagram.
+- A successful imagegen layer should look like a generated bitmap illustration,
+  not like a hand-authored SVG flowchart. Reject rigid code-like boxes, sharp
+  exact arrows, crisp UI mockups, pseudo-text, or assets whose main value could
+  be drawn more cleanly as native HTML/SVG.
 - Let components compute layout after fonts and KaTeX render. Do not hand-place
   every arrow or formula by eye.
 - Treat visual bugs as component-rule bugs when they could recur.

@@ -105,6 +105,12 @@ or visually weak to draw by hand, such as a full transformer stack, model
 interior, lab setup, hardware-like system, or conceptual machine. Treat the
 generated image as an illustration layer, not the source of truth.
 
+The generated result must actually look like a bitmap illustration. Reject
+raster assets that read as hand-authored SVG flowcharts, crisp UI mockups,
+ordinary rounded-card diagrams, or code-native boxes with sharp arrows. Those
+should either be rebuilt directly in HTML/SVG or regenerated with a stronger
+illustration prompt.
+
 Rules for generated assets:
 
 - request text-free or near-text-free images when labels are not needed

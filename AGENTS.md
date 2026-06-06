@@ -217,6 +217,13 @@ new blocks as part of the next image stage, using the previous image as a
 reference. If exact geometry or exact text is required, build a code-native
 SVG/HTML diagram instead.
 
+Reject imagegen assets that look like hand-authored SVG flowcharts or crisp UI
+mockups. A useful raster layer should have generated bitmap illustration
+quality: soft translucent surfaces, organic visual flow, and text-free object
+metaphor. If the result is mostly rigid boxes, exact arrows, pseudo-text, or
+code-like diagram geometry, rebuild it natively or regenerate a more
+illustrative bitmap.
+
 When using Noto assets in a reusable or open-source package, include the
 appropriate license/notice from the Noto Emoji repository. Avoid flag assets
 unless their licensing has been checked separately.
