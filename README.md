@@ -24,11 +24,23 @@ It includes references for:
 
 Three showcase examples are kept in the repository:
 
-| Example | Source | Preview |
-|---|---|---|
-| GRPO sampling unit, original slide 03 | [`examples/grpo-showcase`](examples/grpo-showcase) | <a href="examples/grpo-showcase/export/slide-01.png"><img src="examples/grpo-showcase/export/slide-01.png" width="360" alt="GRPO sampling unit preview"></a> |
-| GRPO objective, original slide 05 | [`examples/grpo-showcase`](examples/grpo-showcase) | <a href="examples/grpo-showcase/export/slide-02.png"><img src="examples/grpo-showcase/export/slide-02.png" width="360" alt="GRPO objective preview"></a> |
-| MDP polished reproduction | [`examples/mdp-reproduction`](examples/mdp-reproduction) | <a href="examples/mdp-reproduction/export/slide-01.png"><img src="examples/mdp-reproduction/export/slide-01.png" width="360" alt="MDP reproduction preview"></a> |
+### GRPO sampling unit, original slide 03
+
+Source: [`examples/grpo-showcase`](examples/grpo-showcase)
+
+[![GRPO sampling unit preview](examples/grpo-showcase/export/slide-01.png)](examples/grpo-showcase/export/slide-01.png)
+
+### GRPO objective, original slide 05
+
+Source: [`examples/grpo-showcase`](examples/grpo-showcase)
+
+[![GRPO objective preview](examples/grpo-showcase/export/slide-02.png)](examples/grpo-showcase/export/slide-02.png)
+
+### MDP polished reproduction
+
+Source: [`examples/mdp-reproduction`](examples/mdp-reproduction)
+
+[![MDP reproduction preview](examples/mdp-reproduction/export/slide-01.png)](examples/mdp-reproduction/export/slide-01.png)
 
 The preview thumbnails are committed PNGs. Open the HTML files directly after
 installing dependencies, or run the render script to regenerate PNGs and contact
