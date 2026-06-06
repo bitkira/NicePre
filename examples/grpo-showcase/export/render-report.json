@@ -1,0 +1,21 @@
+{
+  "input": "file:///Users/bitkira/Documents/GitHub/NicePre/examples/grpo-showcase/index.html",
+  "slides": [
+    {
+      "slide": 1,
+      "overflowCount": 0,
+      "formulaTitleOverlapCount": 0,
+      "arrowLabelHitCount": 0,
+      "markerEndCount": 5,
+      "branchPathCount": 5
+    },
+    {
+      "slide": 2,
+      "overflowCount": 0,
+      "formulaTitleOverlapCount": 0,
+      "arrowLabelHitCount": 0,
+      "markerEndCount": 0,
+      "branchPathCount": 0
+    }
+  ]
+}

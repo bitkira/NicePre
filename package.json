@@ -1,0 +1,19 @@
+{
+  "name": "nicepre",
+  "version": "0.1.0",
+  "description": "Codex skill and examples for polished light academic slide decks.",
+  "license": "Apache-2.0",
+  "private": false,
+  "type": "module",
+  "scripts": {
+    "render:grpo": "node skills/academic-slide-deck/scripts/render-deck.mjs examples/grpo-showcase/index.html --out examples/grpo-showcase/export --slides .slide --width 1600 --height 900 --ready body.math-ready",
+    "render:mdp": "node skills/academic-slide-deck/scripts/render-deck.mjs examples/mdp-reproduction/index.html --out examples/mdp-reproduction/export --slides .slide --width 1600 --height 900 --ready body.math-ready"
+  },
+  "dependencies": {
+    "katex": "0.17.0"
+  },
+  "devDependencies": {
+    "playwright": "^1.60.0",
+    "sharp": "^0.34.5"
+  }
+}

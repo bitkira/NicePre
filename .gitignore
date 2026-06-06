@@ -1,0 +1,9 @@
+node_modules/
+.DS_Store
+.jj/
+
+# Local reference screenshots supplied during development.
+/image*.png
+
+# Scratch exports from ad hoc render checks.
+/tmp/

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Academic Slide Deck"
+  short_description: "Build polished technical slides with visual QA"
+  default_prompt: "Use $academic-slide-deck to create a polished light academic deck with rendered QA."
