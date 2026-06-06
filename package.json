@@ -9,8 +9,7 @@
     "render:grpo": "node skills/academic-slide-deck/scripts/render-deck.mjs examples/grpo-showcase/index.html --out examples/grpo-showcase/export --slides .slide --width 1600 --height 900 --ready body.math-ready",
     "render:mdp": "node skills/academic-slide-deck/scripts/render-deck.mjs examples/mdp-reproduction/index.html --out examples/mdp-reproduction/export --slides .slide --width 1600 --height 900 --ready body.math-ready",
     "render:moe": "node skills/academic-slide-deck/scripts/render-deck.mjs examples/moe-router/index.html --out examples/moe-router/export --slides .slide --width 1600 --height 900 --ready body.math-ready",
-    "render:hybrid": "node skills/academic-slide-deck/scripts/render-deck.mjs examples/hybrid-transformer/index.html --out examples/hybrid-transformer/export --slides .slide --width 1600 --height 900 --ready body.math-ready",
-    "render:all": "npm run render:grpo && npm run render:mdp && npm run render:moe && npm run render:hybrid"
+    "render:all": "npm run render:grpo && npm run render:mdp && npm run render:moe"
   },
   "dependencies": {
     "katex": "0.17.0"

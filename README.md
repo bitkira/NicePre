@@ -49,14 +49,6 @@ Source: [`examples/moe-router`](examples/moe-router)
   <img src="examples/moe-router/export/contact-sheet.png" alt="MoE raster concept contact sheet" width="100%">
 </a>
 
-### Hybrid Raster + KaTeX
-
-Source: [`examples/hybrid-transformer`](examples/hybrid-transformer)
-
-<a href="examples/hybrid-transformer/export/contact-sheet.png">
-  <img src="examples/hybrid-transformer/export/contact-sheet.png" alt="Hybrid transformer contact sheet" width="100%">
-</a>
-
 Open the HTML files directly after installing development dependencies, or run
 the render script to regenerate PNGs and contact sheets.
 
@@ -109,7 +101,6 @@ npm install --save-dev playwright sharp
 npm run render:grpo
 npm run render:mdp
 npm run render:moe
-npm run render:hybrid
 npm run render:all
 ```
 

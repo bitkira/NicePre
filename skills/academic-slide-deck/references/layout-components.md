@@ -41,7 +41,7 @@ Use this wrapper test before drawing a border or fill:
 
 If the answer is mostly no, remove the wrapper.
 
-## Hybrid Raster Assets
+## Generated Raster Assets
 
 Use a generated bitmap when the slide needs a rich object that is not primarily
 a formal diagram: transformer internals, a neural-processing machine, a lab

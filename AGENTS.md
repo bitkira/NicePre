@@ -202,7 +202,7 @@ Do not force Noto Emoji to represent structural concepts such as:
 Build those as local SVG components using the palette above.
 
 For complex visual objects that would be expensive or weak as hand-authored
-SVG, use a hybrid raster path: generate a clean bitmap asset with imagegen, then
+SVG, generate a clean bitmap asset with imagegen, then
 place exact formulas nearby with KaTeX.
 This is appropriate for full transformer internals, model machinery, lab-like
 systems, or conceptual devices. It is not appropriate for exact equations,

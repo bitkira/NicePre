@@ -107,8 +107,8 @@ in an available shared runtime.
   a hairline divider. Use a pale formula background only when it is truly a
   formula safe area, a multi-step derivation group, or a deliberate emphasis.
 - For visually complex structures such as full transformer blocks, model
-  internals, hardware-like systems, or conceptual machinery, consider a hybrid
-  raster path: generate a complete style-native illustration with imagegen, then
+  internals, hardware-like systems, or conceptual machinery, consider a
+  generated raster path: create a complete style-native illustration with imagegen, then
   place beautiful formulas nearby with KaTeX. For progressive visual sequences,
   generate each stage from the previous image as a reference so additions such
   as embeddings, transformer blocks, linear heads, broad arrows, and simple
