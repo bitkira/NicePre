@@ -111,6 +111,12 @@ ordinary rounded-card diagrams, or code-native boxes with sharp arrows. Those
 should either be rebuilt directly in HTML/SVG or regenerated with a stronger
 illustration prompt.
 
+Depth and perspective must carry meaning. Do not use 3D, isometric views,
+stacked translucent planes, or layer walls as decoration. Use them only when the
+slide is explicitly about multi-head attention, multiple model layers, parallel
+experts, time steps, stacked documents, or another real stacked/parallel
+structure. A single concept or single block should normally be flat 2D.
+
 Generated side token streams are a common failure point. For token or embedding
 sequences, prefer the code-native `TokenSequence` style. If a generated bitmap
 includes input/output streams, they must match the NicePre language: flat 2D
@@ -121,6 +127,8 @@ Rules for generated assets:
 
 - request text-free or near-text-free images when labels are not needed
 - ask for the NicePre palette, flat light academic style, and clean whitespace
+- default to flat 2D; permit 3D/perspective only when it encodes a real
+  stacked/parallel concept
 - avoid generated formulas, variable names, dense legends, and small technical
   text
 - avoid generated side token sequences unless they match the code-native token

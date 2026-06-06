@@ -45,6 +45,9 @@ For imagegen-backed slides, run an asset audit:
 
 - no baked-in formulas, variable names, or important labels
 - no hallucinated text, pseudo-letters, or unreadable legends
+- any 3D, perspective, isometric plane, or stacked layer effect has an explicit
+  semantic reason such as multi-head, multiple layers, parallel experts, or time
+  steps; otherwise regenerate as flat 2D
 - generated broad arrows or module captions, if present, match the intended
   stage and visual style
 - generated image stays subordinate to the formula/explanation layer

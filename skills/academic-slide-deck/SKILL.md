@@ -118,6 +118,11 @@ in an available shared runtime.
   not like a hand-authored SVG flowchart. Reject rigid code-like boxes, sharp
   exact arrows, crisp UI mockups, pseudo-text, or assets whose main value could
   be drawn more cleanly as native HTML/SVG.
+- Depth is semantic, not decoration. Do not use 3D, perspective, isometric
+  plates, or stacked translucent planes unless the slide is explicitly
+  explaining multi-head attention, multiple layers, parallel experts, time
+  steps, or another real stacked/parallel structure. Default to flat 2D raster
+  illustration for a single concept or single block.
 - Do not let imagegen invent side token sequences that conflict with NicePre
   components. For input/output sequences, either omit them from the bitmap and
   draw them with the code-native `TokenSequence`, or require flat 2D rounded

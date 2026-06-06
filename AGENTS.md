@@ -224,6 +224,12 @@ metaphor. If the result is mostly rigid boxes, exact arrows, pseudo-text, or
 code-like diagram geometry, rebuild it natively or regenerate a more
 illustrative bitmap.
 
+Depth is semantic, not decorative. Do not use 3D, perspective, isometric plates,
+or stacked translucent planes unless the slide explicitly explains multi-head
+attention, multiple layers, parallel experts, time steps, or another real
+stacked/parallel structure. For a single concept or single block, default to
+flat 2D raster illustration.
+
 Do not let imagegen invent input/output token sequences that conflict with the
 NicePre component language. Omit side sequences from the bitmap when possible;
 when they are needed, require flat 2D rounded token blocks in the NicePre

@@ -39,6 +39,12 @@ as soft ribbons or require flat 2D rounded token blocks in the NicePre palette.
 Reject glossy cubes, bead strings, 3D blocks, or any side sequence that does not
 match the deck's token style.
 
+Depth policy: use flat 2D by default. Ask for 3D, perspective, isometric planes,
+or stacked translucent layers only when depth encodes the actual concept, such
+as multi-head attention, multiple model layers, parallel experts, time steps, or
+stacked documents. If the topic is a single block or single concept, explicitly
+ban 3D, perspective, stacked plates, and layer walls.
+
 ## Prompt Template
 
 ```text
@@ -81,8 +87,8 @@ paper texture, bokeh, decorative blobs, heavy shadows, clutter.
 ```text
 Use case: scientific-educational
 Asset type: bitmap illustration layer for a fixed 16:9 academic slide
-Primary request: Create a clean text-free illustration of a transformer model
-interior as a calm stack of attention and feed-forward layers.
+Primary request: Create a clean text-free flat 2D illustration of a single
+transformer block interior as a calm attention and feed-forward module.
 
 Style:
 Light academic presentation aesthetic. Flat, airy, polished, restrained.
@@ -92,13 +98,18 @@ lavender #D9CAE5, yellow #FEE082, neutral border #D7DAD4. Low to medium
 saturation, high lightness, no heavy shadows.
 
 Composition:
-16:9 horizontal. A central layered transformer block stack occupies about half
-the canvas. Use faint broad flow ribbons entering from the left and exiting to
-the right, but do not draw visible side token sequences unless explicitly
+16:9 horizontal. A single central flat rounded transformer block occupies about
+half the canvas. Use faint broad flow ribbons entering from the left and exiting
+to the right, but do not draw visible side token sequences unless explicitly
 needed. If side tokens are needed, they must be flat 2D rounded rectangles in
 the NicePre palette, not glossy cubes, beads, or 3D blocks. Include subtle
-attention-like arcs and translucent layer planes, but keep wide whitespace above
-and below for unframed formula bands in the slide layout.
+attention-like arcs and one soft feed-forward band inside the block, but keep
+wide whitespace above and below for unframed formula bands in the slide layout.
+
+Dimensional safety:
+Flat 2D only unless the slide explicitly explains multi-head attention, multiple
+layers, or another stacked/parallel structure. No 3D, no perspective, no
+isometric view, no stacked translucent planes, no layer wall.
 
 Formula safety:
 No formulas, no variable names, no dense legends, no tiny glyphs, no watermark.
