@@ -1,0 +1,112 @@
+:root {
+  --canvas: #fefefc;
+  --paper: #fbfbf8;
+  --border: #d7dad4;
+  --text: #323232;
+  --math: #282a2e;
+  --blue: #4d7cc6;
+  --green: #608343;
+  --purple: #78649a;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC",
+    "Segoe UI", Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #e9e9e5;
+  color: var(--text);
+  font-family: var(--font-sans);
+}
+
+.slide {
+  position: relative;
+  width: 1600px;
+  height: 900px;
+  overflow: hidden;
+  background: var(--canvas);
+  padding: 56px 68px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--blue);
+  font-size: 16px;
+  font-weight: 820;
+}
+
+.title {
+  margin: 0;
+  color: var(--text);
+  font-size: 50px;
+  font-weight: 360;
+  line-height: 1.04;
+  letter-spacing: 0;
+}
+
+.page {
+  position: absolute;
+  top: 60px;
+  right: 74px;
+  color: var(--blue);
+  font-size: 15px;
+  font-weight: 820;
+  font-variant-numeric: tabular-nums;
+}
+
+.stage-image {
+  position: absolute;
+  left: 100px;
+  top: 150px;
+  width: 1400px;
+  height: 540px;
+  object-fit: contain;
+  opacity: 0.96;
+  filter: saturate(0.98) brightness(1.02);
+}
+
+.formula-row {
+  position: absolute;
+  left: 176px;
+  right: 176px;
+  bottom: 62px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 54px;
+  align-items: start;
+}
+
+.formula {
+  min-height: 92px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(215, 218, 212, 0.95);
+}
+
+.formula-title {
+  margin-bottom: 18px;
+  color: var(--blue);
+  font-size: 14px;
+  font-weight: 850;
+  text-transform: lowercase;
+}
+
+.formula.green .formula-title {
+  color: var(--green);
+}
+
+.formula.purple .formula-title {
+  color: var(--purple);
+}
+
+.math {
+  color: var(--math);
+  font-size: 32px;
+  line-height: 1.16;
+}
+
+.katex {
+  color: var(--math);
+}

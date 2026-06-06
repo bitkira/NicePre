@@ -188,6 +188,8 @@ async function main() {
       return Array.from(document.querySelectorAll(slideSelector)).map((slide, index) => {
         const slideRect = rect(slide);
         const overflowElements = Array.from(slide.querySelectorAll("*")).filter((element) => {
+          const katexRoot = element.closest(".katex, .katex-display");
+          if (katexRoot && katexRoot !== element) return false;
           const r = rect(element);
           return (
             r.width > 0.5 &&

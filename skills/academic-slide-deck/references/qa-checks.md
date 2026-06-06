@@ -22,7 +22,44 @@ Common problems:
 - reversed arrows caused by fixed padding
 - huge empty panels around short content
 - unnecessary cards, pills, and nested wrappers
+- default blue boxes around ordinary formulas
 - arbitrary color use that does not encode meaning
+
+Run a wrapper audit after the first render:
+
+- remove boxes around page numbers, role labels, legends, and short notes
+- collapse chip-inside-card structures into one semantic object
+- replace sparse panels with unframed headings, aligned labels, or direct arrows
+- keep only boundaries that encode membership, state, object identity, or formula
+  safe space
+
+Run a formula-box audit:
+
+- remove blue rounded backgrounds from ordinary formulas
+- keep formula titles as small colored text, not title badges inside boxes
+- use whitespace, baseline alignment, and hairlines before formula panels
+- keep pale formula backgrounds only for true derivation groups, tall operators
+  needing safe space, or deliberate emphasis
+
+For imagegen-backed slides, run an asset audit:
+
+- no baked-in formulas, variable names, or important labels
+- no hallucinated text, pseudo-letters, or unreadable legends
+- generated broad arrows or module captions, if present, match the intended
+  stage and visual style
+- generated image stays subordinate to the formula/explanation layer
+- formulas are readable in separate KaTeX areas near the image, preferably
+  unframed
+- avoid hand-overlaid decorative labels and arrows on top of the bitmap; generate
+  them as part of the image or use a code-native SVG diagram for exact geometry
+- crop and aspect ratio do not hide the generated subject
+
+For progressive imagegen sequences:
+
+- adjacent stages preserve palette, camera, shape language, and spacing
+- each stage adds only the intended visual element
+- no unwanted extra labels, fake text, or diagram clutter appear
+- formula meaning remains outside the bitmap in KaTeX
 
 ## Automatic Checks
 
@@ -40,10 +77,18 @@ Automated checks are not a substitute for looking at screenshots.
 
 Formula layout should be checked after KaTeX and fonts are ready.
 
+- sums, products, integrals, limits, and fractions use display style when shown
+  as standalone formulas
+- standalone big-operator bounds are in the correct limit position; for example
+  the lower bound of a displayed `\sum` sits under the sigma, not at its lower
+  right
 - measure visible KaTeX descendants
 - include formula captions and term labels
 - check overlap between formula title and actual visible math
 - check bottom safe padding for display sums, fractions, and aligned formulas
+- avoid treating KaTeX internal glyphs or generated SVG paths as independent
+  slide-overflow elements; check the rendered formula wrapper and visible math
+  union instead
 
 Overflow-free does not mean visually correct.
 

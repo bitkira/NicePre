@@ -62,7 +62,7 @@ Use a light academic palette based on the reference slides.
 | Canvas | `#FEFEFC` | page / slide base |
 | Paper | `#FBFBF8` | content surface |
 | Observed panel | `#F7FAF5` | observed / state region background |
-| Formula panel | `#EDF4FA` | formulas, derivations, light blue panels |
+| Formula wash | `#EDF4FA` | rare formula safe areas or derivation emphasis |
 | Border | `#D7DAD4` | hairlines, grid, component outlines |
 | Arrow | `#8B8D8C` | connectors and arrows |
 | Main text | `#323232` | titles and primary text |
@@ -154,12 +154,25 @@ Use KaTeX by default for formulas and math labels.
   tiny non-math label
 - wait for KaTeX and web fonts before taking screenshots
 - use MathJax only when KaTeX lacks required TeX support
+- use `\displaystyle` or KaTeX `displayMode: true` for standalone formulas with
+  `\sum`, `\prod`, `\int`, `\frac`, limits, or other tall operators; inline
+  mode makes these look cramped and misaligned
+- force explicit limits for standalone big operators whose bounds should sit
+  above or below the operator, for example `\sum\limits_i` or
+  `\sum\limits_{i \in S(x)}`; do not accept a lower-right side index when the
+  notation should read as a displayed sum
 - for display-style, aligned, or multi-line KaTeX formulas, measure the union of
   visible KaTeX descendant boxes, not just the top-level `.katex` wrapper
 
 For highlighted math fragments, keep the math itself in TeX and wrap the
 rendered fragment in a local visual component, such as `RewardBadge` or
 `FormulaHighlight`.
+
+Do not put formulas in blue boxes by default. Prefer unframed formula groups:
+small colored title, large KaTeX, baseline alignment, and whitespace or a
+hairline divider. Use `#EDF4FA` behind math only for true derivation groups,
+tall display formulas that need safe measured space, or deliberate emphasis.
+If most formulas on a slide have blue backgrounds, remove the backgrounds.
 
 ## Object And Icon Assets
 
@@ -188,6 +201,22 @@ Do not force Noto Emoji to represent structural concepts such as:
 
 Build those as local SVG components using the palette above.
 
+For complex visual objects that would be expensive or weak as hand-authored
+SVG, use a hybrid raster path: generate a clean bitmap asset with imagegen, then
+place exact formulas nearby with KaTeX.
+This is appropriate for full transformer internals, model machinery, lab-like
+systems, or conceptual devices. It is not appropriate for exact equations,
+token sequences, matrices, tables, or architecture diagrams where precision is
+the main point.
+
+Generated assets should be text-free or near-text-free. Do not trust imagegen
+for formulas, variable names, legends, or small technical text. Avoid detailed
+hand-overlaid labels, arrows, and callouts on top of bitmaps. For visual
+sequence diagrams, let imagegen generate the arrows, broad module captions, or
+new blocks as part of the next image stage, using the previous image as a
+reference. If exact geometry or exact text is required, build a code-native
+SVG/HTML diagram instead.
+
 When using Noto assets in a reusable or open-source package, include the
 appropriate license/notice from the Noto Emoji repository. Avoid flag assets
 unless their licensing has been checked separately.
@@ -206,6 +235,10 @@ Prefer reusable SVG/CSS components for:
 - `Arrow`
 - `RegionPanel`
 - `GridWorld`
+
+Components should not imply wrappers. A component may generate unframed labels,
+math, SVG geometry, anchors, and alignment rules without drawing a card around
+the content.
 
 Component style:
 
@@ -259,13 +292,21 @@ manual per-item coordinates.
 
 ## Design Rules
 
-- Use large pale surfaces for grouping.
+- Start unframed. Use whitespace, alignment, arrows, colored text, and math
+  baselines before adding panels, cards, or pills.
+- Use large pale surfaces only for real grouping.
 - Use dark text for readability.
 - Use arrows and neutral structure in gray.
 - Use semantic color only when it adds meaning.
 - Keep ordinary symbols and labels in the main blue accent by default. Escalate
   to multiple hues only for diagram disambiguation, data state, or formula-term
   cross-reference.
+- Add a wrapper only when it carries semantic meaning: object identity,
+  membership, state, a formula safe region, or an actual subsystem boundary. If
+  removing the fill/border does not change what the reader understands, remove
+  it.
+- Do not use blue formula boxes as a default formula style. Formulas usually sit
+  unframed with small colored titles and strong KaTeX typesetting.
 - Do not wrap short explanatory notes, glossary terms, or simple takeaway text in
   large cards. Prefer unframed typographic groups with clear heading color,
   line length, and spacing.
@@ -274,6 +315,8 @@ manual per-item coordinates.
   a short list or a compact comparison.
 - Do not wrap simple flow symbols twice. A semantic node can directly contain
   the math symbol and label.
+- Do not use cards as generic spacing tools. Fix spacing with layout, not
+  containers.
 - Do not turn role labels, legend labels, or category names into pills by
   default. When the label is only naming a concept, semantic text color is often
   enough; use filled chips only when the label behaves like a token, state, or

@@ -24,6 +24,8 @@ fixed 16:9 viewport.
 Read `references/visual-system.md` before choosing colors, typography, or
 container style. Read `references/layout-components.md` before building diagrams
 with arrows, formulas, tokens, multi-row structures, or panels. Read
+`references/imagegen-prompts.md` before generating bitmap illustration assets.
+Read
 `references/qa-checks.md` before final delivery or when a screenshot reveals a
 layout bug.
 
@@ -78,12 +80,40 @@ in an available shared runtime.
   special emphasis treatment.
 - Use semantic color sparingly. Default ordinary symbols, role labels, page
   numbers, and simple headings to the main blue accent.
-- Avoid wrapping simple text notes, page numbers, legends, or role labels in
-  large cards or pills.
+- Start unframed. Use whitespace, alignment, colored text, math baselines, and
+  arrows before adding cards, panels, or pills.
+- Add a wrapper only when it carries semantic meaning: an object boundary, a
+  true grouped region, a formula safe area, or an interactive/movable visual
+  unit. If removing the border/fill does not change the reader's understanding,
+  remove the wrapper.
+- Avoid wrapping simple text notes, page numbers, legends, role labels, and
+  short explanations in cards or pills. Prefer unframed typography.
+- Do not nest wrappers by default. A colored symbol chip inside a neutral card
+  is usually worse than one semantic block containing the symbol and label.
 - Size containers to content density. A short list should not sit inside a huge
   empty panel.
 - Use KaTeX for variables, subscripts, superscripts, sums, aligned formulas, and
   inline math labels.
+- Display formulas containing `\sum`, `\prod`, `\int`, `\frac`, limits, or
+  other tall operators with KaTeX display style. Do not leave these as cramped
+  inline math; use `\displaystyle` or `displayMode: true` and then measure the
+  rendered result.
+- When a standalone big operator has bounds that belong above or below the
+  symbol, force limits explicitly, for example `\sum\limits_i` or
+  `\sum\limits_{i \in S(x)}`. A large `\sum_i` with the index at the lower
+  right is still wrong for this style.
+- Do not put formulas in blue boxes by default. Prefer unframed formula groups:
+  a small colored title, strong KaTeX math, baseline alignment, and whitespace or
+  a hairline divider. Use a pale formula background only when it is truly a
+  formula safe area, a multi-step derivation group, or a deliberate emphasis.
+- For visually complex structures such as full transformer blocks, model
+  internals, hardware-like systems, or conceptual machinery, consider a hybrid
+  raster path: generate a complete style-native illustration with imagegen, then
+  place beautiful formulas nearby with KaTeX. For progressive visual sequences,
+  generate each stage from the previous image as a reference so additions such
+  as embeddings, transformer blocks, linear heads, broad arrows, and simple
+  module labels share one visual style. Do not hand-overlay these visual
+  callouts with HTML/SVG unless the user asks for an exact code-native diagram.
 - Let components compute layout after fonts and KaTeX render. Do not hand-place
   every arrow or formula by eye.
 - Treat visual bugs as component-rule bugs when they could recur.
@@ -99,3 +129,7 @@ Examples:
 - formula close to panel bottom -> measure visible KaTeX descendants and center
   inside a safe region
 - sparse panel -> shrink the container or switch to unframed typography
+- wrapper abuse -> remove non-semantic panels/chips and re-express hierarchy
+  with spacing, text color, alignment, and direct labels
+- formula box abuse -> remove default blue formula backgrounds; use unframed
+  KaTeX groups unless a true safe area or derivation group is needed

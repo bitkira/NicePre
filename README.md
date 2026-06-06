@@ -20,37 +20,58 @@ It includes references for:
 - token, embedding, and model block diagrams
 - screenshot/contact-sheet QA
 
-## Examples
+## Showcase Gallery
 
-Three showcase examples are kept in the repository:
+The repository keeps a small gallery of rendered PNGs so the style can be
+judged directly on GitHub before running any setup.
 
-### GRPO sampling unit, original slide 03
-
-Source: [`examples/grpo-showcase`](examples/grpo-showcase)
-
-[![GRPO sampling unit preview](examples/grpo-showcase/export/slide-01.png)](examples/grpo-showcase/export/slide-01.png)
-
-### GRPO objective, original slide 05
+### GRPO Showcase
 
 Source: [`examples/grpo-showcase`](examples/grpo-showcase)
 
-[![GRPO objective preview](examples/grpo-showcase/export/slide-02.png)](examples/grpo-showcase/export/slide-02.png)
+<a href="examples/grpo-showcase/export/contact-sheet.png">
+  <img src="examples/grpo-showcase/export/contact-sheet.png" alt="GRPO showcase contact sheet" width="100%">
+</a>
 
-### MDP polished reproduction
+### MDP Polished Reproduction
 
 Source: [`examples/mdp-reproduction`](examples/mdp-reproduction)
 
-[![MDP reproduction preview](examples/mdp-reproduction/export/slide-01.png)](examples/mdp-reproduction/export/slide-01.png)
+<a href="examples/mdp-reproduction/export/slide-01.png">
+  <img src="examples/mdp-reproduction/export/slide-01.png" alt="MDP polished reproduction" width="100%">
+</a>
 
-The preview thumbnails are committed PNGs. Open the HTML files directly after
-installing dependencies, or run the render script to regenerate PNGs and contact
-sheets.
+### MoE Router Sequence
+
+Source: [`examples/moe-router`](examples/moe-router)
+
+<a href="examples/moe-router/export/contact-sheet.png">
+  <img src="examples/moe-router/export/contact-sheet.png" alt="MoE router sequence contact sheet" width="100%">
+</a>
+
+### Hybrid Raster + KaTeX
+
+Source: [`examples/hybrid-transformer`](examples/hybrid-transformer)
+
+<a href="examples/hybrid-transformer/export/contact-sheet.png">
+  <img src="examples/hybrid-transformer/export/contact-sheet.png" alt="Hybrid transformer contact sheet" width="100%">
+</a>
+
+Open the HTML files directly after installing development dependencies, or run
+the render script to regenerate PNGs and contact sheets.
 
 ## Using With Codex
 
 If you are using this as a Codex skill, you do not need to manually prepare this
 repository before every task. Ask your agent to install or use the skill from
-this repository, then let the agent configure the target workspace as needed.
+this repository:
+
+```text
+Install and use the academic-slide-deck skill from
+https://github.com/bitkira/NicePre/tree/main/skills/academic-slide-deck
+```
+
+Then let the agent configure the target workspace as needed.
 
 Dependency setup is agent-managed. Users do not need this repository's
 `node_modules`, and they do not need to run `npm install` here just to use the
@@ -87,6 +108,9 @@ npm install --save-dev playwright sharp
 ```bash
 npm run render:grpo
 npm run render:mdp
+npm run render:moe
+npm run render:hybrid
+npm run render:all
 ```
 
 The shared renderer can be used directly:
@@ -103,6 +127,12 @@ node skills/academic-slide-deck/scripts/render-deck.mjs \
 
 It writes slide PNGs, `contact-sheet.html`, optional `contact-sheet.png`, and
 `render-report.json`.
+
+## Acknowledgements
+
+NicePre was inspired in part by Bilibili creator
+[吃花椒的麦](https://www.bilibili.com/video/BV1rooaYVEk8/). Special thanks for
+the visual presentation ideas and academic-slide craft reflected in that work.
 
 ## License
 
