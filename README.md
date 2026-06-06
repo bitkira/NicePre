@@ -52,14 +52,22 @@ If you are using this as a Codex skill, you do not need to manually prepare this
 repository before every task. Ask your agent to install or use the skill from
 this repository, then let the agent configure the target workspace as needed.
 
-The agent should install Node dependencies only when it needs to render or
-regenerate slides. The checked-in PNG previews can be viewed on GitHub without
-running any setup.
+Dependency setup is agent-managed. Users do not need this repository's
+`node_modules`, and they do not need to run `npm install` here just to use the
+skill. When a deck needs to be rendered, the agent should configure the active
+target workspace: use an existing `package.json` when appropriate, create a
+minimal one when needed, install KaTeX and Playwright there, and use an
+available browser or install a Playwright browser.
+
+This repository's `package.json` is for developing NicePre itself and
+regenerating the included examples. The checked-in PNG previews can be viewed
+on GitHub without running any setup.
 
 ## Local Development Setup
 
 Use this section only when you want to run the examples or renderer yourself
-from a local clone.
+from a local clone. It is not required for installing or using the skill through
+Codex.
 
 ```bash
 npm install

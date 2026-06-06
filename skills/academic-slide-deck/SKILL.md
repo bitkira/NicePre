@@ -66,6 +66,11 @@ workspace yourself: install missing Node dependencies when the environment
 allows it, then run the renderer. Ask the user to run setup only when package
 installation or browser access is blocked by the environment.
 
+Do not require the user to download this skill repository's `node_modules`.
+Treat the skill repository as instructions, examples, and helper scripts. Runtime
+dependencies belong in the current target workspace that is being rendered, or
+in an available shared runtime.
+
 ## Implementation Rules
 
 - Keep the first screen as the actual slide, not a landing page.
