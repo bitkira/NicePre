@@ -118,6 +118,11 @@ in an available shared runtime.
   not like a hand-authored SVG flowchart. Reject rigid code-like boxes, sharp
   exact arrows, crisp UI mockups, pseudo-text, or assets whose main value could
   be drawn more cleanly as native HTML/SVG.
+- Do not let imagegen invent side token sequences that conflict with NicePre
+  components. For input/output sequences, either omit them from the bitmap and
+  draw them with the code-native `TokenSequence`, or require flat 2D rounded
+  token blocks in the NicePre palette. Reject glossy cubes, bead strings, 3D
+  blocks, or side streams with a different visual language.
 - Let components compute layout after fonts and KaTeX render. Do not hand-place
   every arrow or formula by eye.
 - Treat visual bugs as component-rule bugs when they could recur.

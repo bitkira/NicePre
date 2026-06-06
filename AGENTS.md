@@ -224,6 +224,12 @@ metaphor. If the result is mostly rigid boxes, exact arrows, pseudo-text, or
 code-like diagram geometry, rebuild it natively or regenerate a more
 illustrative bitmap.
 
+Do not let imagegen invent input/output token sequences that conflict with the
+NicePre component language. Omit side sequences from the bitmap when possible;
+when they are needed, require flat 2D rounded token blocks in the NicePre
+palette. Reject glossy cubes, bead strings, 3D token blocks, or side streams
+that do not match the deck's code-native token style.
+
 When using Noto assets in a reusable or open-source package, include the
 appropriate license/notice from the Noto Emoji repository. Avoid flag assets
 unless their licensing has been checked separately.

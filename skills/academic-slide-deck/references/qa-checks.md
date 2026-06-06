@@ -48,6 +48,8 @@ For imagegen-backed slides, run an asset audit:
 - generated broad arrows or module captions, if present, match the intended
   stage and visual style
 - generated image stays subordinate to the formula/explanation layer
+- side token/input/output streams, if present, match the NicePre token style;
+  reject glossy cubes, bead strings, 3D blocks, or mismatched side sequences
 - formulas are readable in separate KaTeX areas near the image, preferably
   unframed
 - avoid hand-overlaid decorative labels and arrows on top of the bitmap; generate

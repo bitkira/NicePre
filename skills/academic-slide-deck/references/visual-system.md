@@ -111,12 +111,20 @@ ordinary rounded-card diagrams, or code-native boxes with sharp arrows. Those
 should either be rebuilt directly in HTML/SVG or regenerated with a stronger
 illustration prompt.
 
+Generated side token streams are a common failure point. For token or embedding
+sequences, prefer the code-native `TokenSequence` style. If a generated bitmap
+includes input/output streams, they must match the NicePre language: flat 2D
+rounded blocks, pale semantic fills, and no glossy cubes, bead strings, or 3D
+token tiles.
+
 Rules for generated assets:
 
 - request text-free or near-text-free images when labels are not needed
 - ask for the NicePre palette, flat light academic style, and clean whitespace
 - avoid generated formulas, variable names, dense legends, and small technical
   text
+- avoid generated side token sequences unless they match the code-native token
+  style exactly; otherwise omit them and use soft flow ribbons
 - allow style-native arrows, broad module captions, and simple block names when
   they are part of a generated visual sequence and can be inspected
 - place precise formulas in separate unframed KaTeX formula areas near the image

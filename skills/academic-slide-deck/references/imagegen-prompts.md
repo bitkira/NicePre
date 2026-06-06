@@ -33,6 +33,12 @@ Do not use imagegen when:
 - exact text accuracy matters inside the bitmap
 - the asset must remain fully editable as vector source
 
+Token or embedding sequences are usually better as code-native components. If a
+bitmap illustration needs surrounding input/output streams, keep them abstract
+as soft ribbons or require flat 2D rounded token blocks in the NicePre palette.
+Reject glossy cubes, bead strings, 3D blocks, or any side sequence that does not
+match the deck's token style.
+
 ## Prompt Template
 
 ```text
@@ -87,8 +93,10 @@ saturation, high lightness, no heavy shadows.
 
 Composition:
 16:9 horizontal. A central layered transformer block stack occupies about half
-the canvas. Abstract token streams enter from the left as small pale rounded
-rectangles and leave to the right as quieter aligned blocks. Include subtle
+the canvas. Use faint broad flow ribbons entering from the left and exiting to
+the right, but do not draw visible side token sequences unless explicitly
+needed. If side tokens are needed, they must be flat 2D rounded rectangles in
+the NicePre palette, not glossy cubes, beads, or 3D blocks. Include subtle
 attention-like arcs and translucent layer planes, but keep wide whitespace above
 and below for unframed formula bands in the slide layout.
 
